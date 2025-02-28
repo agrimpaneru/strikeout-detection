@@ -22,7 +22,7 @@ The system follows a multi-step pipeline for processing an image and extracting 
    - A fine-tuned ResNet-50 model classifies whether a given text region is a valid word or a struck-out word.
    - The classifier outputs a probability score along with the predicted label ("Text" or "Strike").
 
-4. **(Optional) OCR Recognition (TrOCR)**
+4. **OCR Recognition (TrOCR)**
    - If a word is classified as valid (not struck-out), the TrOCR (Transformer-based OCR) model is used to recognize the text.
    - This enables full text extraction from handwritten documents.
 
@@ -47,7 +47,7 @@ This is the main script that coordinates the entire pipeline.
 - Implements a ResNet-50-based binary classifier to differentiate between normal and struck-out text.
 - Uses a softmax activation to provide classification confidence scores.
 
-### 4. `trocr_ocr.py` (Optional)
+### 4. `trocr_ocr.py` 
 - Uses a TrOCR model for recognizing handwritten words.
 - Only applies OCR if the classifier determines that the text is not struck-out.
 
@@ -57,23 +57,7 @@ This is the main script that coordinates the entire pipeline.
 ### 6. `utils/preprocessing.py`
 - Contains the TensorFlow-based image preprocessing pipeline for enhancing text visibility.
 
-## Key Features
-✅ Detects handwritten words and strikeouts using deep learning.
-✅ Works on scanned documents, notes, and handwritten forms.
-✅ Uses a multi-step pipeline with detection, preprocessing, classification, and OCR.
-✅ Provides a clear visualization of detected text and strikeouts.
-✅ Supports optional OCR for recognized words.
 
-## Applications
-🚀 Digitalizing handwritten documents with strike-through annotations.
-📜 Enhancing OCR accuracy for handwritten text with artifacts.
-📝 Assisting in academic grading by detecting canceled answers.
-🔍 Extracting structured data from historical handwritten archives.
-
-## Future Improvements
-🔹 Integrating a lightweight real-time model for mobile applications.
-🔹 Refining the YOLO model for improved small-text detection.
-🔹 Exploring transformer-based approaches for end-to-end recognition.
 
 ## Results
 Below are the sample results of the strikeout word detection pipeline:
